@@ -520,7 +520,7 @@ class LLMChatInstance {
     const msg = `
       <div class="msg ${kind}-msg">
         <div class="msg-bubble">
-          <div class="msg-text">${text}</div>
+          <remark-element class="msg-text">${text}</remark-element>
         </div>
       </div>
     `;
@@ -538,7 +538,7 @@ class LLMChatInstance {
     const msgText = msg.getElementsByClassName("msg-text");
     if (msgText.length != 1) throw Error("Expect msg-text");
     if (msgText[0].innerHTML == text) return;
-    text = text.replaceAll("\n", "<br>");
+    text = text.replaceAll("\n", "\n\n");
     msgText[0].innerHTML = text;
     this.uiChat.scrollTo(0, this.uiChat.scrollHeight);
   }
