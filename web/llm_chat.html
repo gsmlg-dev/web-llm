@@ -3,6 +3,7 @@
 </script>
 
 <script type="module">
+  import('https://esm.run/@gsmlg/lit/remark-element');
   async function getTokenizer(url) {
     const mod = await import("./dist/sentencepiece/index.js");
     return await mod.sentencePieceProcessor(url);
